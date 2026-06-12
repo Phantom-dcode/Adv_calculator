@@ -39,15 +39,15 @@ flutter run
 
 ## 📦 Project Structure
 Nova-Calcx/
-├── calculator.py                         ← Python: Desktop UI + Flask API   (767 lines)
+├── calculator.py                         ← Python: Desktop UI + Flask API 
 ├── requirements.txt                      ← flask, gunicorn
 ├── Dockerfile                            ← Multi-stage: Flutter build + nginx + Python
 ├── nginx.conf                            ← Reverse proxy web + API
 ├── flutter_app/lib/
-│   ├── main.dart                         ← App entry, theme, orientation     (40 lines)
-│   ├── screens/calculator_screen.dart    ← Full UI + animations (534 lines)
-│   ├── widgets/calc_button.dart          ← 3D custom button     (~200 lines)
-│   └── utils/calculator_engine.dart      ← Dart math engine     (217 lines)
+│   ├── main.dart                         ← App entry, theme, orientation 
+│   ├── screens/calculator_screen.dart    ← Full UI + animations
+│   ├── widgets/calc_button.dart          ← 3D custom button    
+│   └── utils/calculator_engine.dart      ← Dart math engine    
 ├── .github/workflows/deploy.yml          ← CI/CD → GitHub Pages
 └── docs/index.html                       ← Loading placeholder (auto-replaced on deploy)
 
