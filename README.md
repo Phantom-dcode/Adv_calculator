@@ -21,15 +21,6 @@ A cross-platform calculator application combining a Python backend with a Flutte
 
 ### Running Locally
 
-#### Python Backend
-```bash
-cd python_app
-pip install -r requirements.txt
-./run.sh  # Linux/Mac
-# OR
-run.bat   # Windows
-```
-
 #### Flutter App
 ```bash
 cd flutter_app
