@@ -1,4 +1,4 @@
-
+// utils/calculator_engine.dart  —  Dart port of Python Engine
 import 'dart:math' as math;
 
 class CalcResult {

@@ -692,4 +692,3 @@ class _CalcButtonState extends State<_CalcButton>
     );
   }
 }
-
