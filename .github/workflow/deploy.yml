@@ -1,0 +1,78 @@
+ name: Deploy Flutter Web → GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow Pages deployment
+permissions:
+  contents: write
+  pages:    write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────
+      - uses: actions/checkout@v4
+
+      # ── 2. Install Flutter ─────────────────────────────────────
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+          channel: stable
+          cache: true
+
+      # ── 3. Install dependencies ────────────────────────────────
+      - name: Flutter pub get
+        working-directory: flutter_app
+        run: flutter pub get
+
+      # ── 4. Build Flutter Web ───────────────────────────────────
+      #  base-href MUST match your repo name for GitHub Pages to work
+      - name: Build Flutter web
+        working-directory: flutter_app
+        run: flutter build web --release --base-href /Nova-Calcx/
+
+      # ── 5. Copy build output to docs/ ──────────────────────────
+      - name: Copy web build to docs/
+        run: |
+          rm -rf docs
+          cp -r flutter_app/build/web docs
+
+      # ── 6. Commit docs/ back to main ───────────────────────────
+      - name: Commit & push docs/
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "🚀 Deploy Flutter web build [skip ci]"
+          git push
+
+  # ── 7. Deploy to GitHub Pages ────────────────────────────────
+  deploy-pages:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://phantom-dcode.github.io/Nova-Calcx/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+
+      - uses: actions/deploy-pages@v4
+
+      
