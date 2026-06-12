@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova CalcX — Loading…</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0A0A1A;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      height: 100vh; font-family: monospace;
-      color: #00E5FF;
-    }
-    .logo { font-size: 3rem; margin-bottom: 20px; animation: pulse 2s infinite; }
-    h1 { font-size: 1.5rem; letter-spacing: 4px; margin-bottom: 12px; }
-    p  { color: #8899BB; font-size: 0.9rem; }
-    .bar {
-      width: 220px; height: 3px; background: #1A1A3E;
-      border-radius: 2px; margin-top: 24px; overflow: hidden;
-    }
-    .fill {
-      height: 100%; background: linear-gradient(90deg, #00E5FF, #BF00FF);
-      border-radius: 2px; animation: load 2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:0.5 } }
-    @keyframes load  { 0% { width:0 } 100% { width:100% } }
-  </style>
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="adv_calculator">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>adv_calculator</title>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div class="logo">◈</div>
-  <h1>NOVA CALCX</h1>
-  <p>3D Holographic Calculator</p>
-  <div class="bar"><div class="fill"></div></div>
-  <p style="margin-top:16px;font-size:0.75rem;">
-    Push to main → GitHub Actions builds &amp; deploys automatically
-  </p>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
-
