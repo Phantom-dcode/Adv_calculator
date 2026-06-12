@@ -1,4 +1,16 @@
-# Phantom Calculator 🧮
+# Advanced Calculator
+
+🌐 **Live Demo:**  
+https://phantom-dcode.github.io/Adv_calculator/
+
+📱 **Flutter Web Application**
+deployed on GitHub Pages.
+
+## Features
+- Scientific Calculator
+- Matrix Operations
+- Unit Conversion
+- Modern Flutter UI
 
 **Simple 3D animated motion calculator using Python with Flutter integration.**
 
